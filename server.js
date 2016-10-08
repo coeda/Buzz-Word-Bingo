@@ -9,12 +9,11 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static('public'));
 app.use('/buzzword', buzzword.router);
 
-app.get('/', (req, res) => {
-  res.send('serves index');
-});
-
 app.get('/buzzwords', (req,res) => {
-  res.send(buzzword.buzzwords);
+  let buzzNames = buzzword.buzzwords.map((element) => {
+    return element.buzzWord;
+  });
+  res.send(buzzNames);
 });
 
 app.post('/reset', (req, res) => {

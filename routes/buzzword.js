@@ -15,7 +15,6 @@ let getBuzzword = (element) => {
 router.route('/')
   .post((req, res) => {
     let selectedBuzzword = getBuzzword(req.body);
-    console.log(req.body);
     if(selectedBuzzword < 0){
       buzzwords.push(req.body);
       res.send('{ "success": true }');
@@ -26,7 +25,6 @@ router.route('/')
 
   .put((req, res) => {
     let selectedBuzzword = getBuzzword(req.body);
-    console.log(selectedBuzzword);
     if(selectedBuzzword > -1){
       //do stuff
       let score = parseFloat(buzzwords[selectedBuzzword].points);
@@ -42,7 +40,7 @@ router.route('/')
     let selectedBuzzword = getBuzzword(req.body);
     if(selectedBuzzword > -1){
       //delete stuff
-      console.log(buzzwords.splice(selectedBuzzword, 1));
+      buzzwords.splice(selectedBuzzword, 1);
       res.send('{ "success": true }');
     } else {
       res.send('{ "success": false }');
