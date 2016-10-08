@@ -4,9 +4,9 @@ const buzzwords = [];
 
 let getBuzzword = (element) => {
   let selectedIndex = -1;
-  buzzwords.forEach((buzzword)=>{
-    if(buzzword.buzzWord === element.buzzWord){
-      selectedIndex = buzzwords.indexOf(buzzword);
+  buzzwords.forEach((buzz)=>{
+    if(buzz.buzzWord === element.buzzWord){
+      selectedIndex = buzzwords.indexOf(buzz);
     }
   });
   return selectedIndex;
